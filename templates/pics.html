@@ -4,14 +4,14 @@
     <title>@natkringoudis</title>
     <description>Nat Kringoudis' Instagram Feed</description>
     <link>https://instagram.com/natkringoudis</link>
-    <pubDate>{{ pub_date }}</pubDate> 
+    <pubDate>{{ created_time }}</pubDate> 
     <atom:link href="http://nk-feed-001.appspot.com/pics" rel="self" type="application/rss+xml" />
-    <generator>Andy Botting</generator>
+    <generator>nkfeed</generator>
 {% for post in posts %}
     <item>
-      <title>Image</title>
-      <description>{{ post.description }}</description>
-      <guid isPermaLink="true">{{ post.guid }}</guid>
+      <title>{{ post.caption.text }}</title>
+      <description><![CDATA[<a href="{{ post.link }}"><img width="200" height="200" src="{{ post.images.low_resolution.url }}" alt="{{ post.caption.text }}"></a>]]></description>
+      <guid isPermaLink="true">{{ post.link }}</guid>
     </item>
 {% endfor %}
   </channel>

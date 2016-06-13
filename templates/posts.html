@@ -6,14 +6,14 @@
       <link>{{ feed_url }}</link>
       <atom:link href="http://nk-feed-001.appspot.com/blog" rel="self" type="application/rss+xml" />
       <pubDate>{{ pub_date }}</pubDate>
-      <generator>Andy Botting</generator>
+      <generator>nkfeed</generator>
 {% for post in posts %}
       <item>
          <title>{{ post.title }}</title>
-         <pubDate>{{ post.updated }}</pubDate>
+         <pubDate>{{ post.published }}</pubDate>
          <link>{{ post.link }}</link>
-         <description><![CDATA[{{ post.subtitle|safe }}]]></description>
-         <guid isPermaLink="false">{{ post.link }}</guid>
+         <description><![CDATA[{{ post.summary|safe }}]]></description>
+         <guid isPermaLink="false">{{ post.guid }}</guid>
       </item>
 {% endfor %}
    </channel>
