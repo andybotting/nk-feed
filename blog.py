@@ -20,6 +20,8 @@ def entries(days=6):
         # Remove the paragraph 'The post*'
         e['summary'] = re.sub(ur'<p>The post.*</a>.</p>', ur'', e['summary'])
         # Add a break after the image
-        e['summary'] = re.sub(ur'(<img .*?>)', ur'\1<br />', e['summary'])
+        e['summary'] = re.sub(ur'(<img .*?>)', ur'<p>\1</p>', e['summary'])
+        # Remove Continue link
+        e['summary'] = re.sub(ur'(\s?<a href=".*">Continued</a>)', '', e['summary'])
 
     return entries
