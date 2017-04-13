@@ -10,12 +10,14 @@ Instagram
 This uses the Instagram API to fetch the latest images. The token and client
 code are not checked in with this source.
 
-To generate a code, you can use the `get_access_token.py` script included in
-the code from https://github.com/facebookarchive/python-instagram or follow
-the instructions from https://bobmckay.com/web/simple-tutorial-for-getting-an-instagram-clientid-and-access-token/
-
 You need to create a new application (can keep it sandboxed!) and add NK's
 Instagram user ID (6204130) to the list of users available from the sandbox.
+
+To generate a new access token, follow this URL (replace __CLIENT_ID__ with the actual Client ID from https://www.instagram.com/developer/clients/manage/):
+https://www.instagram.com/oauth/authorize/?client_id=__CLIENT_ID__&redirect_uri=http://nk-feed-001.appspot.com/pics&response_type=token
+
+If you get `This request requires scope=public_content, but this access token is not authorized with this scope`, then you need to request access to that scope, using the following URL:
+https://www.instagram.com/oauth/authorize/?client_id=__CLIENT_ID__&redirect_uri=http://nk-feed-001.appspot.com/pics&response_type=code&scope=public_content
 
 
 Installation
